@@ -26,7 +26,7 @@ const Moviedetails = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-screen h-screen px-[5%]"
+      className="w-screen h-[140vh] px-[5%]"
     >
       {/* part 1 nav */}
       <nav className="w-full h-[10vh] text-zinc-200 flex items-center gap-10 text-xl">

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 
 const HorizontalCards = ({ data }) => {
-  // console.log(data);
+  console.log(data);
   return (
     <div className="w-[100%] flex h-[40vh] overflow-x-auto p-3">
       {data.map((d, i) => (
         <Link
           to={`/${d.media_type}/details/${d.id}`}
           key={i}
-          className="min-w-[15%]  mr-5 overflow-y-auto mb-4"
+          className="min-w-[15%] h-[30vh]  mr-5 overflow-y-auto mb-4"
         >
           <img
             src={`https://image.tmdb.org/t/p/original${d.backdrop_path || d.posters_path}`}

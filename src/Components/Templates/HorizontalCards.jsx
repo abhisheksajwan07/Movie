@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 
 const HorizontalCards = ({ data }) => {
-  console.log(data);
+  console.log("HorizontalCards received data:", data);
   return (
     <div className="w-[100%] flex h-[40vh] overflow-x-auto p-3">
-      {data.map((d, i) => (
+    
+      {Array.isArray(data)&& data.map((d, i) => (
         <Link
           to={`/${d.media_type}/details/${d.id}`}
           key={i}

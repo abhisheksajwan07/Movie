@@ -11,7 +11,7 @@ const Moviedetails = () => {
   const { id } = useParams();
   const { info } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
-  console.log(info);
+  console.log("MovieDetail data:", info);
   useEffect(() => {
     dispatch(asyncloadmovie(id));
     return () => {
@@ -154,7 +154,7 @@ const Moviedetails = () => {
       </div>
 
       {/*part 4 recomendation */}
-      <HorizontalCards
+      Array.isArray(data) && <HorizontalCards
         data={
           info.recommendations.length > 0 ? info.recommendations : info.similar}
         

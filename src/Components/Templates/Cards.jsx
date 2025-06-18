@@ -5,9 +5,9 @@ const Cards = ({ data, title }) => {
   console.log(data)
   console.log(title);
   return (
-    <div className="flex flex-wrap w-full  h-full px-[5%] bg-[#1F1E24]">
-      {data.map((c, i) => (
-        <Link to={`/${c.media_type || title}/details/${c.id}`} key={i} className="relative w-[25vh] mr-[5%] mb-[5%]">
+    <div className="flex flex-wrap mx-auto max-w-[90%] py-5  h-full px-[5%] bg-[#1F1E24]">
+      {Array.isArray(data) && data.map((c, i) => (
+        <Link to={`/${c.media_type || title}/details/${c.id}`} key={i} className="relative  w-[25vh] mr-[5%] mb-[5%]">
           {/* kahi like in popularcomponent ki api fetch ke data m jagah media type aanahi rha isliye ham title use karrhe */}
           {/* like trending m alwaysmedia type aata */}
           <img

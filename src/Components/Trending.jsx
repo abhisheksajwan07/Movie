@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TopNav from "./Templates/TopNav";
 import DropDown from "./Templates/DropDown";
@@ -36,6 +36,7 @@ const Trending = () => {
   const refreshHandler = () => {
     if (trending.length === 0) {
       getTrending();
+      console.log("Fetching page:", page);
     } else {
       setPage(1);
       setTrending([]);
@@ -77,6 +78,7 @@ const Trending = () => {
         next={getTrending}
         hasMore={hasMore}
         loader={<h1>Loading...</h1>}
+        scrollThreshold={0.9}  
       >
         <Cards data={trending} title={category} />
       </InfiniteScroll>

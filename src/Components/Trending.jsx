@@ -15,8 +15,12 @@ const Trending = () => {
   const [trending, setTrending] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-
+  const MAX_PAGE = 5;
   const getTrending = async () => {
+    if (page > MAX_PAGE) {
+      setHasMore(false);
+      return;
+    }
     try {
       const { data } = await axios.get(
         `/trending/${category}/${duration}?page=${page}`
@@ -24,7 +28,11 @@ const Trending = () => {
       console.log("Has More Data: ", hasMore);
       if (data.results.length > 0) {
         setTrending((prevState) => [...prevState, ...data.results]);
-        setPage((prevPage) => prevPage + 1);
+        setPage(page + 1);
+
+        if (page >= data.total_pages || page >= MAX_PAGE) {
+          setHasMore(false);
+        }
       } else {
         setHasMore(false);
       }
@@ -33,23 +41,29 @@ const Trending = () => {
     }
   };
 
-  const refreshHandler = () => {
-    if (trending.length === 0) {
-      getTrending();
-      console.log("Fetching page:", page);
-    } else {
-      setPage(1);
-      setTrending([]);
-      getTrending();
-    }
-  };
+  // const refreshHandler = () => {
+  //   if (trending.length === 0) {
+  //     getTrending();
+  //     console.log("Fetching page:", page);
+  //   } else {
+  //     setPage(1);
+  //     setTrending([]);
+  //     getTrending();
+  //   }
+  // };
   useEffect(() => {
-    refreshHandler();
-    console.log("Trending Data: ", trending);
+    // refreshHandler();
+    // console.log("Trending Data: ", trending);
+    setTrending([]);
+    setPage(1);
   }, [category, duration]);
 
-  return trending.length > 0 ? (
-    <div className=" py-1 w-screen h-screen overflow-auto">
+  useEffect(() => {
+    getTrending();
+  }, [page]);
+
+  return trending?.length > 0 ? (
+    <div className=" py-1 w-screen h-screen overflow-y-auto">
       <div className="px-[5%] w-full flex justify-between items-center">
         <h1 className="text-2xl font-semibold text-zinc-400">
           <i
@@ -59,7 +73,7 @@ const Trending = () => {
           Trending
         </h1>
         <div className="flex items-center w-[80%]">
-          <TopNav className="pr-3" />
+          <TopNav />
           <DropDown
             title="Category"
             options={["movie", "tv", "all"]}
@@ -77,11 +91,15 @@ const Trending = () => {
         dataLength={trending.length}
         next={getTrending}
         hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
-        scrollThreshold={0.9}  
+        loader={<h1>NO more data</h1>}
       >
         <Cards data={trending} title={category} />
       </InfiniteScroll>
+      {!hasMore && (
+        <p className="text-center mb2 text-zinc-400 mt-5">
+          You've reached the preview limit. Want more? Go to Home page!
+        </p>
+      )}
     </div>
   ) : (
     <Loader />

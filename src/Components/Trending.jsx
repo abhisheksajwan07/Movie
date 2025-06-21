@@ -41,16 +41,7 @@ const Trending = () => {
     }
   };
 
-  // const refreshHandler = () => {
-  //   if (trending.length === 0) {
-  //     getTrending();
-  //     console.log("Fetching page:", page);
-  //   } else {
-  //     setPage(1);
-  //     setTrending([]);
-  //     getTrending();
-  //   }
-  // };
+  
   useEffect(() => {
     // refreshHandler();
     // console.log("Trending Data: ", trending);

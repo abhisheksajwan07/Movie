@@ -17,7 +17,7 @@ const Moviedetails = () => {
     return () => {
       dispatch(removemovie());
     };
-  }, [dispatch,id]);
+  }, [dispatch, id]);
   return info ? (
     <div
       style={{
@@ -50,7 +50,6 @@ const Moviedetails = () => {
           <i className="ri-earth-fill"></i>
         </a>
       </nav>
-
       {/* Part 2 Poster and details */}
       <div className="w-full flex">
         <img
@@ -104,7 +103,6 @@ const Moviedetails = () => {
           </Link>
         </div>
       </div>
-
       {/* Part 3 Available on Platform */}
       <div className="w-[80%] flex flex-col gap-y-5 mt-5">
         {info.watchproviders && info.watchproviders.flatrate && (
@@ -152,12 +150,12 @@ const Moviedetails = () => {
           </div>
         )}
       </div>
-
       {/*part 4 recomendation */}
-      Array.isArray(data) && <HorizontalCards
+      Array.isArray(data) &&{" "}
+      <HorizontalCards
         data={
-          info.recommendations.length > 0 ? info.recommendations : info.similar}
-        
+          info.recommendations.length > 0 ? info.recommendations : info.similar
+        }
       />
     </div>
   ) : (

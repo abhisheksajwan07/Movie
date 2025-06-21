@@ -17,7 +17,14 @@ const Popular = () => {
 
   const getPopular = async () => {
     try {
-      const { data } = await axios.get(`${category}/popular?page=${page}`);
+      let endpoint = "";
+
+      if (category === "all") {
+        endpoint = `trending/all/day?page=${page}`; // or "week"
+      } else {
+        endpoint = `${category}/popular?page=${page}`;
+      }
+      const { data } = await axios.get(endpoint);
       if (data.results.length > 0) {
         setPopular((prevState) => [...prevState, ...data.results]);
         setPage((prevPage) => prevPage + 1);

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader.jsx";
 import noimage from "../assets/noimage.jpg"; //
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import HorizontalCards from "./Templates/HorizontalCards.jsx";
 const Moviedetails = () => {
   const { pathname } = useLocation();
@@ -26,7 +26,7 @@ const Moviedetails = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-screen h-[140vh] px-[5%]"
+      className="relative w-screen min-h-screen overflow-auto  px-[5%]"
     >
       {/* part 1 nav */}
       <nav className="w-full h-[10vh] text-zinc-200 flex items-center gap-10 text-xl">
@@ -151,12 +151,18 @@ const Moviedetails = () => {
         )}
       </div>
       {/*part 4 recomendation */}
-      Array.isArray(data) &&{" "}
+      <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-500" />
+      <h1 className="text-3xl font-bold text-white">
+        Recommendations & Similar stuff
+      </h1>
       <HorizontalCards
         data={
-          info.recommendations.length > 0 ? info.recommendations : info.similar
+          info.recommendations.results.length > 0
+            ? info.recommendations.results
+            : info.similar.results
         }
       />
+      <Outlet/>
     </div>
   ) : (
     <Loader />

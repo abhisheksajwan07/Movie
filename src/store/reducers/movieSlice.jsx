@@ -9,7 +9,7 @@ export const counterSlice = createSlice({
     loadmovie: (state, action) => {
       state.info = action.payload;
     },
-    removemovie: (state, action) => {
+    removemovie: (state) => {
       state.info = null;
     },
   },

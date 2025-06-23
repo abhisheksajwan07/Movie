@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-
+import noimage from "../../assets/noimage.jpg"
 
 const HorizontalCards = ({ data, title }) => {
   console.log("HorizontalCards received data:", data);
   return (
     <div className="w-[100%] flex h-[40vh] overflow-x-auto mt-2 p-3">
-      {data.length > 0 && Array.isArray(data) ? (
+      {data?.length > 0 && Array.isArray(data) ? (
         data.map((d, i) => (
           <Link
             to={`/${d.media_type || title}/details/${d.id}`}
@@ -17,7 +17,7 @@ const HorizontalCards = ({ data, title }) => {
               src={
                 d.backdrop_path || d.posters_path
                   ? `https://image.tmdb.org/t/p/original${d.backdrop_path || d.posters_path}`
-                  : "no-image"
+                  : noimage
               }
               alt=""
             />

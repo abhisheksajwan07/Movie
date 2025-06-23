@@ -10,11 +10,13 @@ export const asyncloadmovie = (id) => async (dispatch) => {
     const translations = await axios.get(`/movie/${id}/translations`);
     const videos = await axios.get(`/movie/${id}/videos`);
     const watchproviders = await axios.get(`/movie/${id}/watch/providers`);
+    // console.log(detail)
+    // console.log(detail.data)
     let theultimatedetails = {
       detail: detail.data,
       externalid: externalid.data,
       recommendations: recommendations.data,
-      similar: similar.data,
+      similar: similar.data.results,
       translations: translations.data.translations.map((t) => t.name),
 
       videos: videos.data.results.find((m) => m.type === "Trailer"),

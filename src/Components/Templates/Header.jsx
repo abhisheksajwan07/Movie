@@ -19,7 +19,12 @@ const Header = ({ data }) => {
         </h1>
         <p className="text-white font-semibold w-[80%] mt-3 ">
           {data.overview.slice(0, 200)} ...{" "}
-          <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">more</Link>
+          <Link
+            to={`/${data.media_type}/details/${data.id}`}
+            className="text-blue-400"
+          >
+            more
+          </Link>
         </p>
         <p className="text-white mt-4 ">
           <span>
@@ -31,7 +36,10 @@ const Header = ({ data }) => {
             {data.media_type?.toUpperCase() || " No Information"}
           </span>
         </p>
-        <Link className="p-4 inline-block bg-[#6556cd] text-xl text-white rounded-md font-semibold mt-5">
+        <Link
+          to={`${data.media_type}/details/${data.id}/trailer`}
+          className="p-4 inline-block bg-[#6556cd] text-xl text-white rounded-md font-semibold mt-5"
+        >
           Watch Trailer
         </Link>
       </div>

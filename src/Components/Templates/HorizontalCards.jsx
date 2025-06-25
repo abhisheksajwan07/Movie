@@ -9,7 +9,7 @@ const HorizontalCards = ({ data, title }) => {
       {data?.length > 0 && Array.isArray(data) ? (
         data.map((d, i) => (
           <Link
-            to={`/${d.media_type || title}/details/${d.id}`}
+            to={`/${d.media_type ? d.media_type : title || "tv"}/details/${d.id}`}
             key={i}
             className="min-w-[15%] h-[30vh]  bg-zinc-900   mr-5 overflow-y-auto mb-4"
           >
@@ -26,7 +26,7 @@ const HorizontalCards = ({ data, title }) => {
             </h1>
             <p className=" mt-1 mb-3 text-white">
               {d.overview.slice(0, 70)}..
-              <Link className="text-blue-500">more</Link>
+              <span className="text-blue-500">more</span>
             </p>
           </Link>
         ))

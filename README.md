@@ -25,7 +25,7 @@
   + Redux Toolkit: For simplifying Redux store setup.
 
 ## 📦 Installation
-1. **Clone the Repository**: `git clone https://github.com/your-repo/movie-db.git`
+1. **Clone the Repository**: `https://github.com/abhisheksajwan07/Movie.git`
 2. **Install Dependencies**: `npm install`
 3. **Start the Development Server**: `npm run dev`
 

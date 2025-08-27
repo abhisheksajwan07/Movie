@@ -5,7 +5,7 @@ import Popular from "./Components/Popular";
 import Movie from "./Components/Movie";
 import Tvshows from "./Components/Tvshows";
 import People from "./Components/People";
-import Moviedetails from "./Components/moviedetails";
+import Moviedetails from "./Components/Moviedetails";
 import Tvdetails from "./Components/Tvdetails";
 import Persondetails from "./Components/Persondetails";
 import Trailer from "./Components/Trailer";

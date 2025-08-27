@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader.jsx";
-import noimage from "../assets/noimage.jpg"; //
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import HorizontalCards from "./Templates/HorizontalCards.jsx";
 const Moviedetails = () => {

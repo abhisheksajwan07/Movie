@@ -9,7 +9,8 @@ import noimage from "../assets/noimage.jpg"; //
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import HorizontalCards from "./Templates/HorizontalCards.jsx";
 import DropDown from "./Templates/DropDown.jsx";
-const PersonDetails = () => {
+
+export const PersonDetails = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -152,4 +153,4 @@ const PersonDetails = () => {
   );
 };
 
-export default PersonDetails;
+

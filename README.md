@@ -54,7 +54,8 @@
 └── vite.config.js
 ```
 
-## 📸 Screenshots
+## 🌐 Live Demo
+👉 [Click here to view](movie-deploy-msue.vercel.app)
 
 
 ## 🤝 Contributing

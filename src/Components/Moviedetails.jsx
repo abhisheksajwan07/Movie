@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
+import { asyncloadmovie, removemovie } from "../store/actions/movieActions.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader.jsx";
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import HorizontalCards from "./Templates/HorizontalCards.jsx";
-const Moviedetails = () => {
+const MovieDetails = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -168,4 +168,4 @@ const Moviedetails = () => {
   );
 };
 
-export default Moviedetails;
+export default MovieDetails;

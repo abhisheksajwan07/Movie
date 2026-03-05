@@ -7,10 +7,10 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { asyncloadtv, removetv } from "../store/actions/tvActions";
+import { asyncloadtv, removetv } from "../store/actions/tvActions.jsx";
 import HorizontalCards from "./Templates/HorizontalCards.jsx";
 import Loader from "./Loader.jsx";
-const Tvdetails = () => {
+const TvDetails = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -194,4 +194,4 @@ const Tvdetails = () => {
   );
 };
 
-export default Tvdetails;
+export default TvDetails;

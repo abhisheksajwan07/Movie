@@ -7,7 +7,7 @@ import TopNav from "./Templates/TopNav";
 import axios from "./Utils/axios";
 import { useNavigate } from "react-router-dom";
 
-const Tvshows = () => {
+const TvShows = () => {
   document.title = "SCSDB | Tv Shows";
 
   const navigate = useNavigate(-1);
@@ -79,4 +79,4 @@ const Tvshows = () => {
     <Loader />
   );
 };
-export default Tvshows;
+export default TvShows;

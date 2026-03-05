@@ -55,7 +55,7 @@
 ```
 
 ## 🌐 Live Demo
-👉 [Click here to view](movie-deploy-msue.vercel.app)
+👉 [Click here to view](https://movie-deploy-msue.vercel.app)
 
 
 ## 🤝 Contributing
